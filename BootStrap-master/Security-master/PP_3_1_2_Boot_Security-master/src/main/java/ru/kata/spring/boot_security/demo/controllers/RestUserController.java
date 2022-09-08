@@ -10,7 +10,7 @@ import ru.kata.spring.boot_security.demo.models.User;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class RestUserController {
     @GetMapping()
     public User showUser(){
