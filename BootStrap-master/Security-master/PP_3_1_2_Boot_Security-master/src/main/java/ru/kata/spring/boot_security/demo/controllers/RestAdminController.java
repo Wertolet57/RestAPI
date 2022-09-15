@@ -23,6 +23,10 @@ public class RestAdminController {
     public List<User> printUsers() {
         return userService.getUsers();
     }
+    @GetMapping("/{id}")
+    public User printUser(@PathVariable("id") Long id) {
+        return userService.getUser(id);
+    }
     @PostMapping()
     public ResponseEntity<HttpStatus> createUser(@RequestBody User user) {
         userService.saveUser(user);
