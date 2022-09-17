@@ -32,7 +32,7 @@ public class RestAdminController {
         userService.saveUser(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
-    @PatchMapping("/{id}")
+    @PatchMapping("/{id} ")
     public ResponseEntity<HttpStatus> updateUser(@RequestBody User user, @PathVariable("id") Long id) {
         user.setId(id);
         userService.updateUser(user);
