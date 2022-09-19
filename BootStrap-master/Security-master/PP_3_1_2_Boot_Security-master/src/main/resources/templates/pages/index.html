@@ -22,13 +22,13 @@
 
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="true">Users table</button>
+                            <button class="nav-link active" id="nav-admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="true" >Users table</button>
                             <button class="nav-link" id="nav-new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="false" >New User</button>
                         </div>
                     </nav>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin">
-                            <table class="table table-striped caption-top">
+                            <table class="table table-striped caption-top" >
                                 <caption class="text-dark ">All users</caption>
                                 <thead>
                                 <tr>
@@ -42,28 +42,7 @@
                                     <th scope="col">Delete</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <th:block th:each="user : ${users}">
-                                    <tr>
-                                        <td th:text="${user.getId()}">User</td>
-                                        <td th:text="${user.getFirstname()}">User</td>
-                                        <td th:text="${user.getLastname()}">User</td>
-                                        <td th:text="${user.getAge()}">User</td>
-                                        <td th:text="${user.getEmail()}">User</td>
-                                        <td th:text="${user.getRole()}">User</td>
-
-                                        <td><form>
-                                            <button type="button" name="edit" class="btn btn-info" th:value="${user.getId()}" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="editForm(value)">
-                                                Edit
-                                            </button>
-                                        </form></td>
-                                        <td><form>
-                                            <button type="button" name="delete" class="btn btn-danger" th:value="${user.getId()}" data-bs-toggle="modal" data-bs-target="#modal" onclick="deleteForm(value)">
-                                                Delete
-                                            </button>
-                                        </form></td>
-                                    </tr>
-                                </th:block>
+                                <tbody id="my-table">
                                 </tbody>
                             </table>
                         </div>
@@ -204,7 +183,7 @@
                                             </select>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <input type="button" class="btn btn-success" value="Add new user" onclick="newUser()">
+                                            <input type="button" class="btn btn-success" value="Add new user" onclick="newUser();">
                                         </div>
                                     </div>
                                 </div>
