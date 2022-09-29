@@ -127,6 +127,7 @@ function deleteForm(a) {
     let elemLastName = document.getElementById("lastname2");
     let elemAge = document.getElementById("age2");
     let elemEmail = document.getElementById("email2");
+    let elemRole = document.getElementById("role2");
     let url = "http://localhost:8080/api/admin/" + del;
     fetch(url)
         .then(response => response.json())
@@ -136,6 +137,12 @@ function deleteForm(a) {
             elemLastName.value = user.lastname;
             elemAge.value = user.age;
             elemEmail.value = user.email;
+            for (let option of elemRole.options) {
+                option.selected = false;
+                if (user.role.indexOf(option.value) >= 0) {
+                    option.selected = true;
+                }
+            }
         });
 }
 function editForm(a) {
@@ -145,6 +152,7 @@ function editForm(a) {
     let elemLastName = document.getElementById("lastname1");
     let elemAge = document.getElementById("age1");
     let elemEmail = document.getElementById("email1");
+    let elemPassword = document.getElementById("password1");
     let elemRole = document.getElementById("role1");
     let url = "http://localhost:8080/api/admin/" + edit;
     fetch(url)
@@ -155,6 +163,13 @@ function editForm(a) {
             elemLastName.value = user.lastname;
             elemAge.value = user.age;
             elemEmail.value = user.email;
+            elemPassword.value = user.password;
+            for (let option of elemRole.options) {
+                option.selected = false;
+                if (user.role.indexOf(option.value) >= 0) {
+                    option.selected = true;
+                }
+            }
         });
 }
 function editUser() {
