@@ -1,3 +1,4 @@
+userId()
 function fillTable(){
     let elem = document.getElementById("my-table");
     elem.innerHTML="";
@@ -66,7 +67,9 @@ function userId() {
     let elemLastName = document.getElementById("lastname");
     let elemAge = document.getElementById("age");
     let elemEmail = document.getElementById("email");
+    let elemHeaderEmail = document.getElementById("email-header");
     let elemRole = document.getElementById("role");
+    let elemHeaderRole = document.getElementById("role-header");
     fetch("http://localhost:8080/api/user")
         .then(response => response.json())
         .then(user => {
@@ -75,10 +78,11 @@ function userId() {
             elemLastName.textContent = user.lastname;
             elemAge.textContent = user.age;
             elemEmail.textContent = user.email;
+            elemHeaderEmail.textContent = user.email;
             elemRole.textContent = user.role;
+            elemHeaderRole.textContent = user.role;
         });
 }
-userId()
 function newUser() {
     let elemFirstName = document.getElementById("firstname3");
     let elemLastName = document.getElementById("lastname3");
